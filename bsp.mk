@@ -28,6 +28,8 @@ systemincludes += \
 # Include STM324xG_EVAL support.
 ifneq ($(strip $(findstring STM324xG_EVAL,$(use))),)
 
+chip := stm32f407xx
+
 systemincludes += \
     cubef4/Drivers/BSP/STM324xG_EVAL \
 
