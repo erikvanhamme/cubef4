@@ -22,10 +22,17 @@ ifneq ($(strip $(findstring stm32f4,$(use))),)
 # Set the arch for the build.
 arch := -mcpu=cortex-m4 -mthumb -mfloat-abi=softfp -mfpu=fpv4-sp-d16
 
+# --- Drivers -----------------------------------------------------------------
+
 # CMSIS module.
 include cubef4/cmsis.mk
 
 # HAL module.
 include cubef4/hal.mk
+
+# --- Middlewares -------------------------------------------------------------
+
+# FreeRTOS module.
+include cubef4/freertos.mk
 
 endif # End of stm32f4
