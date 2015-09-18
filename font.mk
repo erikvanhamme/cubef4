@@ -1,11 +1,11 @@
 # Copyright 2015 Erik Van Hamme
-# 
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
-# 
+#
 #     http://www.apache.org/licenses/LICENSE-2.0
-# 
+#
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -13,18 +13,21 @@
 # limitations under the License.
 
 #
-# USE flag processing file for the cubef4 library.
+# Support for the fonts.
 #
 
-# If this library is included in a project, it means that an stm32f4 chip is involved.
-use += cubef4 stm32f4 cmsis
+# Include font support if the use flags say so.
+ifneq ($(strip $(findstring font,$(use))),)
 
-# ---- Board support ----------------------------------------------------------
+systemincludes += \
+    cubef4/Utilities/Fonts \
 
-# Include STM324xG_EVAL support.
-ifneq ($(strip $(findstring STM324xG_EVAL,$(use))),)
+# TODO: Figure out if a separate use flag for the c files is needed. The LCD handler includes the c files directly.
+#systemsources += \
+#    cubef4/Utilities/Fonts/font8.c \
+#    cubef4/Utilities/Fonts/font12.c \
+#    cubef4/Utilities/Fonts/font16.c \
+#    cubef4/Utilities/Fonts/font20.c \
+#    cubef4/Utilities/Fonts/font24.c \
 
-# Add components used by this board.
-use += bsp hal font ili9325
-
-endif # End of STM324xG_EVAL
+endif # End of font.

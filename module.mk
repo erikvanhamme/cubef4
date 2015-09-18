@@ -24,6 +24,9 @@ arch := -mcpu=cortex-m4 -mthumb -mfloat-abi=softfp -mfpu=fpv4-sp-d16
 
 # --- Drivers -----------------------------------------------------------------
 
+# BSP module.
+include cubef4/bsp.mk
+
 # CMSIS module.
 include cubef4/cmsis.mk
 
@@ -35,7 +38,13 @@ include cubef4/hal.mk
 # FreeRTOS module.
 include cubef4/freertos.mk
 
-# --- Others ------------------------------------------------------------------
+# --- Utilities ---------------------------------------------------------------
+
+# Fonts.
+include cubef4/font.mk
+
+# LCD Log
+include cubef4/log.mk
 
 # Stubs.
 include cubef4/stubs.mk
