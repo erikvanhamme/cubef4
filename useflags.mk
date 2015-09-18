@@ -25,6 +25,6 @@ use += CUBEF4 STM32F4 CMSIS
 ifneq ($(strip $(findstring STM324XG_EVAL,$(use))),)
 
 # Add components used by this board.
-use += BSP HAL FONTS ILI9325
+use += BSP HAL FONTS ILI9325 STMPE811
 
 endif # End of STM324XG_EVAL
