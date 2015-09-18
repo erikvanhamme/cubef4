@@ -17,14 +17,14 @@
 #
 
 # If this library is included in a project, it means that an stm32f4 chip is involved.
-use += cubef4 stm32f4 cmsis
+use += CUBEF4 STM32F4 CMSIS
 
 # ---- Board support ----------------------------------------------------------
 
-# Include STM324xG_EVAL support.
-ifneq ($(strip $(findstring STM324xG_EVAL,$(use))),)
+# Include STM324XG_EVAL support.
+ifneq ($(strip $(findstring STM324XG_EVAL,$(use))),)
 
 # Add components used by this board.
-use += bsp hal font ili9325
+use += BSP HAL FONTS ILI9325
 
-endif # End of STM324xG_EVAL
+endif # End of STM324XG_EVAL

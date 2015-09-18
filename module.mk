@@ -17,7 +17,7 @@
 #
 
 # The library cannot be used unless an stm32f4 chip is selected.
-ifneq ($(strip $(findstring stm32f4,$(use))),)
+ifneq ($(strip $(findstring STM32F4,$(use))),)
 
 # Set the arch for the build.
 arch := -mcpu=cortex-m4 -mthumb -mfloat-abi=softfp -mfpu=fpv4-sp-d16
@@ -41,7 +41,7 @@ include cubef4/freertos.mk
 # --- Utilities ---------------------------------------------------------------
 
 # Fonts.
-include cubef4/font.mk
+include cubef4/fonts.mk
 
 # LCD Log
 include cubef4/log.mk
@@ -49,4 +49,4 @@ include cubef4/log.mk
 # Stubs.
 include cubef4/stubs.mk
 
-endif # End of stm32f4
+endif # End of STM32F4

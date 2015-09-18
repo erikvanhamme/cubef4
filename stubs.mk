@@ -16,12 +16,12 @@
 # Support for the newlib and c++ stubs.
 #
 
-# Include stubs support if the use flags say so.
-ifneq ($(strip $(findstring stubs,$(use))),)
+# Include STUBS support if the use flags say so.
+ifneq ($(strip $(findstring STUBS,$(use))),)
 
 # Stub source files.
 systemsources += \
 	cubef4/stubs/cppstubs.cpp \
 	cubef4/stubs/syscallstubs.c \
 
-endif # End of stubs.
+endif # End of STUBS.

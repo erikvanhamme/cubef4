@@ -16,11 +16,10 @@
 # Support for the fonts.
 #
 
-# Include font support if the use flags say so.
-ifneq ($(strip $(findstring font,$(use))),)
+# Include FONTS support if the use flags say so.
+ifneq ($(strip $(findstring FONTS,$(use))),)
 
-systemincludes += \
-    cubef4/Utilities/Fonts \
+systemincludes += cubef4/Utilities/Fonts
 
 # TODO: Figure out if a separate use flag for the c files is needed. The LCD handler includes the c files directly.
 #systemsources += \
@@ -30,4 +29,4 @@ systemincludes += \
 #    cubef4/Utilities/Fonts/font20.c \
 #    cubef4/Utilities/Fonts/font24.c \
 
-endif # End of font.
+endif # End of FONTS.

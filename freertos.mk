@@ -16,8 +16,8 @@
 # Support for the FreeRTOS middleware module.
 #
 
-# Include FreeRTOS support if the use flags say so.
-ifneq ($(strip $(findstring freertos,$(use))),)
+# Include FREERTOS support if the use flags say so.
+ifneq ($(strip $(findstring FREERTOS,$(use))),)
 
 # Add FreeRTOS include directories.
 systemincludes += \
@@ -34,35 +34,35 @@ systemsources += \
 	cubef4/Middlewares/Third_Party/FreeRTOS/Source/tasks.c \
 	cubef4/Middlewares/Third_Party/FreeRTOS/Source/timers.c \
 
-# Chip support for stm32f4.
-ifneq ($(strip $(findstring stm32f4,$(use))),)
+# Chip support for STM32F4.
+ifneq ($(strip $(findstring STM32F4,$(use))),)
 systemincludes += freertos/Source/portable/GCC/ARM_CM4F
 systemsources += freertos/Source/portable/GCC/ARM_CM4F/port.c
-endif
+endif # End of STM32F4
 
-# Heap 1 implementation selection from use flags.
-ifneq ($(strip $(findstring heap1,$(use))),)
+# HEAP1 implementation selection from use flags.
+ifneq ($(strip $(findstring HEAP1,$(use))),)
 systemsources += freertos/Source/portable/MemMang/heap_1.c
-endif
+endif # End of HEAP1
 
-# Heap 2 implementation selection from use flags.
-ifneq ($(strip $(findstring heap2,$(use))),)
+# HEAP2 implementation selection from use flags.
+ifneq ($(strip $(findstring HEAP2,$(use))),)
 systemsources += freertos/Source/portable/MemMang/heap_2.c
-endif
+endif # End of HEAP2
 
-# Heap 3 implementation selection from use flags.
-ifneq ($(strip $(findstring heap3,$(use))),)
+# HEAP3 implementation selection from use flags.
+ifneq ($(strip $(findstring HEAP3,$(use))),)
 systemsources += freertos/Source/portable/MemMang/heap_3.c
-endif
+endif # End of HEAP3
 
-# Heap 4 implementation selection from use flags.
-ifneq ($(strip $(findstring heap4,$(use))),)
+# HEAP4 implementation selection from use flags.
+ifneq ($(strip $(findstring HEAP4,$(use))),)
 systemsources += freertos/Source/portable/MemMang/heap_4.c
-endif
+endif # End of HEAP4
 
-# Heap 5 implementation selection from use flags.
-ifneq ($(strip $(findstring heap5,$(use))),)
+# HEAP5 implementation selection from use flags.
+ifneq ($(strip $(findstring HEAP5,$(use))),)
 systemsources += freertos/Source/portable/MemMang/heap_5.c
-endif
+endif # End of HEAP5
 
-endif # End of FreeRTOS
+endif # End of FREERTOS

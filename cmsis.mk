@@ -17,7 +17,7 @@
 #
 
 # Include CMSIS support if the use flags say so.
-ifneq ($(strip $(findstring cmsis,$(use))),)
+ifneq ($(strip $(findstring CMSIS,$(use))),)
 
 # Include paths for the CMSIS.
 systemincludes += \

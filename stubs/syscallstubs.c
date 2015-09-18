@@ -19,7 +19,7 @@
 
 // TODO: consider supporting more chip types in this file to make this copy-able to other cubefx libs.
 
-#ifdef stm32f4
+#ifdef STM32F4
 #include "stm32f4xx.h"
 #endif
 

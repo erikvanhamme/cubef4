@@ -17,14 +17,13 @@
 #
 
 # Include HAL support if the use flags say so.
-ifneq ($(strip $(findstring cmsis,$(use))),)
+ifneq ($(strip $(findstring HAL,$(use))),)
 
 # This define is needed by the stm32f4xx.h file.
 defines += -DUSE_HAL_DRIVER
 
 # Add main include paths for the HAL driver.
-systemincludes += \
-	cubef4/Drivers/STM32F4xx_HAL_Driver/Inc \
+systemincludes += cubef4/Drivers/STM32F4xx_HAL_Driver/Inc
 
 # Add all sources for the HAL driver.
 systemsources += \

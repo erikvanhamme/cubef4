@@ -16,8 +16,8 @@
 # Support for the LCD Log module.
 #
 
-# Include LCD Log support if the use flags say so.
-ifneq ($(strip $(findstring lcdlog,$(use))),)
+# Include LOG support if the use flags say so.
+ifneq ($(strip $(findstring LOG,$(use))),)
 
 systemincludes += \
     cubef4/Utilities/Log \
@@ -25,4 +25,4 @@ systemincludes += \
 systemsources += \
     cubef4/Utilities/Log/lcd_log.c \
 
-endif # End of LCD Log
+endif # End of LOG
