@@ -36,33 +36,33 @@ systemsources += \
 
 # Chip support for STM32F4.
 ifneq ($(strip $(findstring STM32F4,$(use))),)
-systemincludes += freertos/Source/portable/GCC/ARM_CM4F
-systemsources += freertos/Source/portable/GCC/ARM_CM4F/port.c
+systemincludes += cubef4/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F
+systemsources += cubef4/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c
 endif # End of STM32F4
 
 # HEAP1 implementation selection from use flags.
 ifneq ($(strip $(findstring HEAP1,$(use))),)
-systemsources += freertos/Source/portable/MemMang/heap_1.c
+systemsources += cubef4/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_1.c
 endif # End of HEAP1
 
 # HEAP2 implementation selection from use flags.
 ifneq ($(strip $(findstring HEAP2,$(use))),)
-systemsources += freertos/Source/portable/MemMang/heap_2.c
+systemsources += cubef4/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_2.c
 endif # End of HEAP2
 
 # HEAP3 implementation selection from use flags.
 ifneq ($(strip $(findstring HEAP3,$(use))),)
-systemsources += freertos/Source/portable/MemMang/heap_3.c
+systemsources += cubef4/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_3.c
 endif # End of HEAP3
 
 # HEAP4 implementation selection from use flags.
 ifneq ($(strip $(findstring HEAP4,$(use))),)
-systemsources += freertos/Source/portable/MemMang/heap_4.c
+systemsources += cubef4/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c
 endif # End of HEAP4
 
 # HEAP5 implementation selection from use flags.
 ifneq ($(strip $(findstring HEAP5,$(use))),)
-systemsources += freertos/Source/portable/MemMang/heap_5.c
+systemsources += cubef4/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_5.c
 endif # End of HEAP5
 
 endif # End of FREERTOS
