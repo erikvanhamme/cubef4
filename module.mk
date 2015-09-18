@@ -35,4 +35,9 @@ include cubef4/hal.mk
 # FreeRTOS module.
 include cubef4/freertos.mk
 
+# --- Others ------------------------------------------------------------------
+
+# Stubs.
+include cubef4/stubs.mk
+
 endif # End of stm32f4
