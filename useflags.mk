@@ -19,12 +19,31 @@
 # If this library is included in a project, it means that an stm32f4 chip is involved.
 use += CUBEF4 STM32F4 CMSIS
 
+# ---- Component dependencies -------------------------------------------------
+
+# Include LOG support if the use flags say so.
+ifneq ($(strip $(findstring LOG,$(use))),)
+
+# LOG needs FONTS support.
+use += FONTS
+
+endif # End of LOG
+
 # ---- Board support ----------------------------------------------------------
+
+# Include STM32F429I_DISCOVERY support.
+ifneq ($(strip $(findstring STM32F429I_DISCOVERY,$(use))),)
+
+# Add components used by this board.
+use += BSP HAL ILI9341 STMPE811
+
+endif # End of STM32F429I_DISCOVERY
+
 
 # Include STM324XG_EVAL support.
 ifneq ($(strip $(findstring STM324XG_EVAL,$(use))),)
 
 # Add components used by this board.
-use += BSP HAL FONTS ILI9325 STMPE811
+use += BSP HAL ILI9325 STMPE811
 
 endif # End of STM324XG_EVAL

@@ -25,13 +25,32 @@ systemincludes += \
 
 # ---- Boards -----------------------------------------------------------------
 
+# Include STM32F429I_DISCOVERY support.
+ifneq ($(strip $(findstring STM32F429I_DISCOVERY,$(use))),)
+
+chip := stm32f429xi
+
+defines += -DHSE_VALUE=8000000
+
+systemincludes += cubef4/Drivers/BSP/STM32F429I-Discovery
+
+systemsources += \
+	cubef4/Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery.c \
+	cubef4/Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_eeprom.c \
+	cubef4/Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_gyroscope.c \
+	cubef4/Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_io.c \
+	cubef4/Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_lcd.c \
+	cubef4/Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_sdram.c \
+	cubef4/Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_ts.c \
+
+endif # End of STM32F429I_DISCOVERY
+
 # Include STM324XG_EVAL support.
 ifneq ($(strip $(findstring STM324XG_EVAL,$(use))),)
 
-chip := stm32f407xx
+chip := stm32f407xg
 
-systemincludes += \
-    cubef4/Drivers/BSP/STM324xG_EVAL \
+systemincludes += cubef4/Drivers/BSP/STM324xG_EVAL
 
 systemsources += \
     cubef4/Drivers/BSP/STM324xG_EVAL/stm324xg_eval.c \
