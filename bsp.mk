@@ -25,6 +25,27 @@ systemincludes += \
 
 # ---- Boards -----------------------------------------------------------------
 
+# Include STM324XG_EVAL support.
+ifneq ($(strip $(findstring STM324XG_EVAL,$(use))),)
+
+chip := stm32f407xg
+
+systemincludes += cubef4/Drivers/BSP/STM324xG_EVAL
+
+systemsources += \
+	cubef4/Drivers/BSP/STM324xG_EVAL/stm324xg_eval.c \
+	cubef4/Drivers/BSP/STM324xG_EVAL/stm324xg_eval_audio.c \
+	cubef4/Drivers/BSP/STM324xG_EVAL/stm324xg_eval_camera.c \
+	cubef4/Drivers/BSP/STM324xG_EVAL/stm324xg_eval_eeprom.c \
+	cubef4/Drivers/BSP/STM324xG_EVAL/stm324xg_eval_io.c \
+	cubef4/Drivers/BSP/STM324xG_EVAL/stm324xg_eval_lcd.c \
+	cubef4/Drivers/BSP/STM324xG_EVAL/stm324xg_eval_sd.c \
+	cubef4/Drivers/BSP/STM324xG_EVAL/stm324xg_eval_sram.c \
+	cubef4/Drivers/BSP/STM324xG_EVAL/stm324xg_eval_ts.c \
+
+endif # End of STM324XG_EVAL
+
+
 # Include STM32F429I_DISCOVERY support.
 ifneq ($(strip $(findstring STM32F429I_DISCOVERY,$(use))),)
 
@@ -45,25 +66,18 @@ systemsources += \
 
 endif # End of STM32F429I_DISCOVERY
 
-# Include STM324XG_EVAL support.
-ifneq ($(strip $(findstring STM324XG_EVAL,$(use))),)
 
-chip := stm32f407xg
+# Include STM32F4XX_NUCLEO support.
+ifneq ($(strip $(findstring STM32F4XX_NUCLEO,$(use))),)
 
-systemincludes += cubef4/Drivers/BSP/STM324xG_EVAL
+chip := stm32f401xe
 
-systemsources += \
-    cubef4/Drivers/BSP/STM324xG_EVAL/stm324xg_eval.c \
-    cubef4/Drivers/BSP/STM324xG_EVAL/stm324xg_eval_audio.c \
-    cubef4/Drivers/BSP/STM324xG_EVAL/stm324xg_eval_camera.c \
-    cubef4/Drivers/BSP/STM324xG_EVAL/stm324xg_eval_eeprom.c \
-    cubef4/Drivers/BSP/STM324xG_EVAL/stm324xg_eval_io.c \
-    cubef4/Drivers/BSP/STM324xG_EVAL/stm324xg_eval_lcd.c \
-    cubef4/Drivers/BSP/STM324xG_EVAL/stm324xg_eval_sd.c \
-    cubef4/Drivers/BSP/STM324xG_EVAL/stm324xg_eval_sram.c \
-    cubef4/Drivers/BSP/STM324xG_EVAL/stm324xg_eval_ts.c \
+systemincludes += cubef4/Drivers/BSP/STM32F4xx-Nucleo
 
-endif # End of STM324XG_EVAL
+systemsources += cubef4/Drivers/BSP/STM32F4xx-Nucleo/stm32f4xx_nucleo.c
+
+endif # End of STM32F4XX_NUCLEO
+
 
 # ---- Components -------------------------------------------------------------
 

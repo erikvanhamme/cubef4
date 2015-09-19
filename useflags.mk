@@ -31,6 +31,15 @@ endif # End of LOG
 
 # ---- Board support ----------------------------------------------------------
 
+# Include STM324XG_EVAL support.
+ifneq ($(strip $(findstring STM324XG_EVAL,$(use))),)
+
+# Add components used by this board.
+use += BSP HAL ILI9325 STMPE811
+
+endif # End of STM324XG_EVAL
+
+
 # Include STM32F429I_DISCOVERY support.
 ifneq ($(strip $(findstring STM32F429I_DISCOVERY,$(use))),)
 
@@ -40,10 +49,10 @@ use += BSP HAL ILI9341 STMPE811
 endif # End of STM32F429I_DISCOVERY
 
 
-# Include STM324XG_EVAL support.
-ifneq ($(strip $(findstring STM324XG_EVAL,$(use))),)
+# Include STM324F4XX_NUCLEO support.
+ifneq ($(strip $(findstring STM32F4XX_NUCLEO,$(use))),)
 
 # Add components used by this board.
-use += BSP HAL ILI9325 STMPE811
+use += BSP HAL
 
-endif # End of STM324XG_EVAL
+endif # End of STM32F4XX_NUCLEO

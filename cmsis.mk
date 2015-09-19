@@ -37,6 +37,10 @@ ifeq ($(filter $(supported_chips),$(chip)),)
 $(error Unsupported chip specified)
 endif
 
+ifneq ($(filter -DSTM32F401xE,$(defines)),)
+systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f401xe.s
+endif
+
 ifneq ($(filter -DSTM32F407xx,$(defines)),)
 systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f407xx.s
 endif
@@ -45,11 +49,11 @@ ifneq ($(filter -DSTM32F417xx,$(defines)),)
 systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f417xx.s
 endif
 
-ifneq ($(filter -DSTM32F429xx,$(chip)),)
+ifneq ($(filter -DSTM32F429xx,$(defines)),)
 systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f429xx.s
 endif
 
-ifneq ($(filter -DSTM32F439xx,$(chip)),)
+ifneq ($(filter -DSTM32F439xx,$(defines)),)
 systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f439xx.s
 endif
 
@@ -58,11 +62,6 @@ endif
 #ifeq ($(chip),stm32f401xc)
 #defines += -DSTM32F401xC
 #systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f401xc.s
-#endif
-
-#ifeq ($(chip),stm32f401xe)
-#defines += -DSTM32F401xE
-#systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f401xe.s
 #endif
 
 #ifeq ($(chip),stm32f405xx)

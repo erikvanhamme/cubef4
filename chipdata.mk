@@ -19,6 +19,19 @@
 
 # TODO: complete this file.
 
+# ---- STM32F401xx family -----------------------------------------------------
+# http://www.st.com/web/catalog/mmc/FM141/SC1169/SS1577/LN1810
+supported_chips += \
+	stm32f401xe \
+
+ifeq ($(chip),stm32f401xe)
+defines += -DSTM32F401xE
+romsize := 512K
+ramsize := 96K
+ccmsize := 0K
+endif # End of stm32f401xe
+
+
 # ---- STM32F407xx / STM32F417xx family ---------------------------------------
 # http://www.st.com/web/catalog/mmc/FM141/SC1169/SS1577/LN11
 supported_chips += \
@@ -67,42 +80,42 @@ supported_chips += \
 	stm32f439xi \
 
 ifeq ($(chip),stm32f429xe)
-defines += -DSTM32F29xx
+defines += -DSTM32F429xx
 romsize := 512K
 ramsize := 192K
 ccmsize := 64K
 endif # End of stm32f429xe
 
 ifeq ($(chip),stm32f429xg)
-defines += -DSTM32F29xx
+defines += -DSTM32F429xx
 romsize := 1048K
 ramsize := 192K
 ccmsize := 64K
 endif # End of stm32f429xg
 
 ifeq ($(chip),stm32f429xi)
-defines += -DSTM32F29xx
+defines += -DSTM32F429xx
 romsize := 2048K
 ramsize := 192K
 ccmsize := 64K
 endif # End of stm32f429xi
 
 ifeq ($(chip),stm32f439xe)
-defines += -DSTM32F39xx
+defines += -DSTM32F439xx
 romsize := 512K
 ramsize := 192K
 ccmsize := 64K
 endif # End of stm32f439xe
 
 ifeq ($(chip),stm32f439xg)
-defines += -DSTM32F39xx
+defines += -DSTM32F439xx
 romsize := 1048K
 ramsize := 192K
 ccmsize := 64K
 endif # End of stm32f439xg
 
 ifeq ($(chip),stm32f439xi)
-defines += -DSTM32F39xx
+defines += -DSTM32F439xx
 romsize := 2048K
 ramsize := 192K
 ccmsize := 64K
