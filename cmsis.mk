@@ -29,99 +29,95 @@ systemsources += \
 	cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c \
 
 # ---- Chip support -----------------------------------------------------------
+# Start by loading the chip data.
+include cubef4/chipdata.mk
 
+# If the chip is not in the supported list, throw an error
+ifeq ($(filter $(supported_chips),$(chip)),)
+$(error Unsupported chip specified)
+endif
 
-# ---- STM32F407xx / STM32F417xx family ---------------------------------------
-# http://www.st.com/web/catalog/mmc/FM141/SC1169/SS1577/LN11
-ifneq ($(filter stm32f407xe stm32f407xg,$(chip)),)
-defines += -DSTM32F407xx
+ifneq ($(filter -DSTM32F407xx,$(defines)),)
 systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f407xx.s
 endif
 
-ifneq ($(filter stm32f417xe stm32f417xg,$(chip)),)
-defines += -DSTM32F417xx
+ifneq ($(filter -DSTM32F417xx,$(defines)),)
 systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f417xx.s
 endif
 
-
-# ---- STM32F429xx / STM32F439xx family ---------------------------------------
-# http://www.st.com/web/catalog/mmc/FM141/SC1169/SS1577/LN1806
-ifneq ($(filter stm32f429xe stm32f429xg stm32f429xi,$(chip)),)
-defines += -DSTM32F429xx
+ifneq ($(filter -DSTM32F429xx,$(chip)),)
 systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f429xx.s
 endif
 
-ifneq ($(filter stm32f439xe stm32f439xg stm32f439xi,$(chip)),)
-defines += -DSTM32F439xx
+ifneq ($(filter -DSTM32F439xx,$(chip)),)
 systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f439xx.s
 endif
 
+# TODO: Fix support for the items below.
 
+#ifeq ($(chip),stm32f401xc)
+#defines += -DSTM32F401xC
+#systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f401xc.s
+#endif
 
-ifeq ($(chip),stm32f401xc)
-defines += -DSTM32F401xC
-systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f401xc.s
-endif
+#ifeq ($(chip),stm32f401xe)
+#defines += -DSTM32F401xE
+#systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f401xe.s
+#endif
 
-ifeq ($(chip),stm32f401xe)
-defines += -DSTM32F401xE
-systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f401xe.s
-endif
+#ifeq ($(chip),stm32f405xx)
+#defines += -DSTM32F405xx
+#systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f405xx.s
+#endif
 
-ifeq ($(chip),stm32f405xx)
-defines += -DSTM32F405xx
-systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f405xx.s
-endif
+#ifeq ($(chip),stm32f410cx)
+#defines += -DSTM32F410Cx
+#systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f410cx.s
+#endif
 
+#ifeq ($(chip),stm32f410rx)
+#defines += -DSTM32F410Rx
+#systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f410rx.s
+#endif
 
-ifeq ($(chip),stm32f410cx)
-defines += -DSTM32F410Cx
-systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f410cx.s
-endif
+#ifeq ($(chip),stm32f410tx)
+#defines += -DSTM32F410Tx
+#systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f410tx.s
+#endif
 
-ifeq ($(chip),stm32f410rx)
-defines += -DSTM32F410Rx
-systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f410rx.s
-endif
+#ifeq ($(chip),stm32f411xe)
+#defines += -DSTM32F411xE
+#systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f411xe.s
+#endif
 
-ifeq ($(chip),stm32f410tx)
-defines += -DSTM32F410Tx
-systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f410tx.s
-endif
+#ifeq ($(chip),stm32f415xx)
+#defines += -DSTM32F415xx
+#systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f415xx.s
+#endif
 
-ifeq ($(chip),stm32f411xe)
-defines += -DSTM32F411xE
-systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f411xe.s
-endif
+#ifeq ($(chip),stm32f427xx)
+#defines += -DSTM32F427xx
+#systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f427xx.s
+#endif
 
-ifeq ($(chip),stm32f415xx)
-defines += -DSTM32F415xx
-systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f415xx.s
-endif
+#ifeq ($(chip),stm32f437xx)
+#defines += -DSTM32F437xx
+#systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f437xx.s
+#endif
 
-ifeq ($(chip),stm32f427xx)
-defines += -DSTM32F427xx
-systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f427xx.s
-endif
+#ifeq ($(chip),stm32f446xx)
+#defines += -DSTM32F446xx
+#systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s
+#endif
 
-ifeq ($(chip),stm32f437xx)
-defines += -DSTM32F437xx
-systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f437xx.s
-endif
+#ifeq ($(chip),stm32f469xx)
+#defines += -DSTM32F469xx
+#systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f469xx.s
+#endif
 
-ifeq ($(chip),stm32f446xx)
-defines += -DSTM32F446xx
-systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f446xx.s
-endif
-
-ifeq ($(chip),stm32f469xx)
-defines += -DSTM32F469xx
-systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f469xx.s
-endif
-
-ifeq ($(chip),stm32f479xx)
-defines += -DSTM32F479xx
-systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f479xx.s
-endif
+#ifeq ($(chip),stm32f479xx)
+#defines += -DSTM32F479xx
+#systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f479xx.s
+#endif
 
 endif # End of CMSIS
