@@ -29,6 +29,18 @@ use += FONTS
 
 endif # End of LOG
 
+
+# Include LWIP support if the use flags say so.
+ifneq ($(strip $(findstring LWIP,$(use))),)
+
+# LWIP needs IPV4 support.
+use += IPV4
+
+# TODO: Figure out how the IPv6 support is supposed to work.
+
+endif # End of LWIP
+
+
 # ---- Board support ----------------------------------------------------------
 
 # Include STM324XG_EVAL support.

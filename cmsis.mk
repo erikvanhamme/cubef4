@@ -25,8 +25,7 @@ systemincludes += \
         cubef4/Drivers/CMSIS/Include \
 
 # Main CMSIS system file.
-systemsources += \
-	cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c \
+systemsources += cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c
 
 # ---- Chip support -----------------------------------------------------------
 # Start by loading the chip data.

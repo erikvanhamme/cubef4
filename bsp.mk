@@ -20,8 +20,7 @@
 ifneq ($(strip $(findstring BSP,$(use))),)
 
 # ---- Common -----------------------------------------------------------------
-systemincludes += \
-    cubef4/Drivers/BSP/Components/Common \
+systemincludes += cubef4/Drivers/BSP/Components/Common
 
 # ---- Boards -----------------------------------------------------------------
 

@@ -19,10 +19,8 @@
 # Include LOG support if the use flags say so.
 ifneq ($(strip $(findstring LOG,$(use))),)
 
-systemincludes += \
-    cubef4/Utilities/Log \
+systemincludes += cubef4/Utilities/Log
 
-systemsources += \
-    cubef4/Utilities/Log/lcd_log.c \
+systemsources += cubef4/Utilities/Log/lcd_log.c
 
 endif # End of LOG

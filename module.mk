@@ -38,6 +38,9 @@ include cubef4/hal.mk
 # FreeRTOS module.
 include cubef4/freertos.mk
 
+# LwIP module.
+include cubef4/lwip.mk
+
 # --- Utilities ---------------------------------------------------------------
 
 # Fonts.
