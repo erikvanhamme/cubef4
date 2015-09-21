@@ -47,7 +47,7 @@ endif # End of LWIP
 ifneq ($(strip $(findstring STM324XG_EVAL,$(use))),)
 
 # Add components used by this board.
-use += BSP HAL ILI9325 STMPE811
+use += BSP HAL ILI9325 STMPE811 CS43L22 OV2640
 
 endif # End of STM324XG_EVAL
 

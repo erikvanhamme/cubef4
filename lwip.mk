@@ -74,8 +74,6 @@ systemsources += \
 # Include FREERTOS support if the use flags say so.
 ifneq ($(strip $(findstring FREERTOS,$(use))),)
 
-defines += -DLWIP_PROVIDE_ERRNO
-
 systemsources += cubef4/Middlewares/Third_Party/LwIP/system/OS/sys_arch.c
 
 endif # End of FREERTOS
