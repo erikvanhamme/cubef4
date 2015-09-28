@@ -43,6 +43,9 @@ include cubef4/lwip.mk
 
 # --- Utilities ---------------------------------------------------------------
 
+# CPU.
+include cubef4/cpu.mk
+
 # Fonts.
 include cubef4/fonts.mk
 

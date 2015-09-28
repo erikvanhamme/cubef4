@@ -30,6 +30,15 @@ use += FONTS
 endif # End of LOG
 
 
+# Include CPU support if the use flags say so.
+ifneq ($(strip $(findstring CPU,$(use))),)
+
+# CPU needs FREERTOS support.
+use += FREERTOS
+
+endif # End of CPU
+
+
 # Include LWIP support if the use flags say so.
 ifneq ($(strip $(findstring LWIP,$(use))),)
 
