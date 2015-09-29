@@ -26,8 +26,8 @@ supported_chips += \
 
 ifeq ($(chip),stm32f401xe)
 defines += -DSTM32F401xE
-romsize := 512K
-ramsize := 96K
+flashsize := 512K
+sramsize := 96K
 ccmsize := 0K
 endif # End of stm32f401xe
 
@@ -42,29 +42,29 @@ supported_chips += \
 
 ifeq ($(chip),stm32f407xe)
 defines += -DSTM32F407xx
-romsize := 512K
-ramsize := 128K
+flashsize := 512K
+sramsize := 128K
 ccmsize := 64K
 endif # End of stm32f407xe
 
 ifeq ($(chip),stm32f407xg)
 defines += -DSTM32F407xx
-romsize := 1024K
-ramsize := 128K
+flashsize := 1024K
+sramsize := 128K
 ccmsize := 64K
 endif # End of stm32f407xg
 
 ifeq ($(chip),stm32f417xe)
 defines += -DSTM32F417xx
-romsize := 512K
-ramsize := 128K
+flashsize := 512K
+sramsize := 128K
 ccmsize := 64K
 endif # End of stm32f417xe
 
 ifeq ($(chip),stm32f417xg)
 defines += -DSTM32F417xx
-romsize := 1024K
-ramsize := 128K
+flashsize := 1024K
+sramsize := 128K
 ccmsize := 64K
 endif # End of stm32f417xg
 
@@ -81,42 +81,42 @@ supported_chips += \
 
 ifeq ($(chip),stm32f429xe)
 defines += -DSTM32F429xx
-romsize := 512K
-ramsize := 192K
+flashsize := 512K
+sramsize := 192K
 ccmsize := 64K
 endif # End of stm32f429xe
 
 ifeq ($(chip),stm32f429xg)
 defines += -DSTM32F429xx
-romsize := 1048K
-ramsize := 192K
+flashsize := 1048K
+sramsize := 192K
 ccmsize := 64K
 endif # End of stm32f429xg
 
 ifeq ($(chip),stm32f429xi)
 defines += -DSTM32F429xx
-romsize := 2048K
-ramsize := 192K
+flashsize := 2048K
+sramsize := 192K
 ccmsize := 64K
 endif # End of stm32f429xi
 
 ifeq ($(chip),stm32f439xe)
 defines += -DSTM32F439xx
-romsize := 512K
-ramsize := 192K
+flashsize := 512K
+sramsize := 192K
 ccmsize := 64K
 endif # End of stm32f439xe
 
 ifeq ($(chip),stm32f439xg)
 defines += -DSTM32F439xx
-romsize := 1048K
-ramsize := 192K
+flashsize := 1048K
+sramsize := 192K
 ccmsize := 64K
 endif # End of stm32f439xg
 
 ifeq ($(chip),stm32f439xi)
 defines += -DSTM32F439xx
-romsize := 2048K
-ramsize := 192K
+flashsize := 2048K
+sramsize := 192K
 ccmsize := 64K
 endif # End of stm32f439xi
