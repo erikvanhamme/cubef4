@@ -19,8 +19,9 @@
 # The library cannot be used unless an stm32f4 chip is selected.
 ifneq ($(strip $(findstring STM32F4,$(use))),)
 
-# Set the arch for the build.
+# Set the arch for the build and define the FPU to be used.
 arch := -mcpu=cortex-m4 -mthumb -mfloat-abi=softfp -mfpu=fpv4-sp-d16
+defines += -D__FPU_PRESENT=1
 
 # --- Drivers -----------------------------------------------------------------
 
