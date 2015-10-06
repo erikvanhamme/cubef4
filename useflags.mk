@@ -50,6 +50,15 @@ use += IPV4
 endif # End of LWIP
 
 
+# Include USB Host MSC Class support if the use flags say so.
+ifneq ($(strip $(findstring USBH_MSC,$(use))),)
+
+# USBH_MSC needs USBH support
+use += USBH
+
+endif # End of USB Host MSC Class.
+
+
 # ---- Board support ----------------------------------------------------------
 
 # Include STM324XG_EVAL support.

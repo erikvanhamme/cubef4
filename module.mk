@@ -45,6 +45,9 @@ include cubef4/freertos.mk
 # LwIP module.
 include cubef4/lwip.mk
 
+# USB Host module.
+include cubef4/usbh.mk
+
 # --- Utilities ---------------------------------------------------------------
 
 # CPU.
