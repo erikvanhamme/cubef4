@@ -36,6 +36,9 @@ include cubef4/hal.mk
 
 # --- Middlewares -------------------------------------------------------------
 
+# FatFs module.
+include cubef4/fatfs.mk
+
 # FreeRTOS module.
 include cubef4/freertos.mk
 
